@@ -4,10 +4,10 @@ import mysql.connector
 # Fungsi untuk membuat koneksi ke database MySQL
 def create_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="coffee_db"
+        host=st.secrets["DB_HOST"],
+        database=st.secrets["DB_DATABASE"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"]  # Ganti dengan nama database yang Anda buat
     )
 
 # Fungsi untuk mendapatkan riwayat pesanan berdasarkan nama pelanggan
@@ -45,3 +45,4 @@ def order_history_page():
             st.warning("Tidak ada riwayat pesanan ditemukan untuk nama ini.")
     else:
         st.info("Masukkan nama Anda untuk melihat riwayat pesanan.")
+
