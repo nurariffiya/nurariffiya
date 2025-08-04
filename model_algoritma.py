@@ -12,10 +12,10 @@ import numpy as np
 
 def create_connection():
     connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="coffee_db"
+        host=st.secrets["DB_HOST"],
+        database=st.secrets["DB_DATABASE"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"]  # Ganti dengan nama database yang Anda buat
     )
     return connection
 
@@ -199,3 +199,4 @@ def plot_svm_pca(data, pca, predictions, calorie_threshold, svm_model):
 # Jalankan di halaman Streamlit
 if __name__ == "__main__":
     model_algorithm_page()
+
