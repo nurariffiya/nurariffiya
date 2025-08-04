@@ -6,10 +6,10 @@ import pandas as pd
 # Fungsi untuk membuat koneksi ke database MySQL
 def create_connection():
     return mysql.connector.connect(
-        host="localhost",         # Alamat server MySQL
-        user="root",              # Username default XAMPP
-        password="",              # Password default XAMPP
-        database="coffee_db"      # Nama database Anda
+       host=st.secrets["DB_HOST"],
+        database=st.secrets["DB_DATABASE"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"]  # Ganti dengan nama database yang Anda buat     # Nama database Anda
     )
 
 # Fungsi untuk menambahkan pesanan ke database
@@ -98,3 +98,4 @@ def pick_up_order_page():
 # Jalankan halaman pick-up order
 if __name__ == "__main__":
     pick_up_order_page()
+
