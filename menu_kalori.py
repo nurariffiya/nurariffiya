@@ -5,10 +5,10 @@ import mysql.connector
 # Fungsi koneksi ke database MySQL
 def create_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="coffee_db"
+       host=st.secrets["DB_HOST"],
+        database=st.secrets["DB_DATABASE"],
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"]  # Ganti dengan nama database yang Anda buat
     )
 
 def read_menu_kopi():
@@ -122,3 +122,4 @@ def menu_kalori_page():
 
 # Jalankan halaman menu kalori
 menu_kalori_page()
+
